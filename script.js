@@ -29,13 +29,54 @@ function playRound(playerInput, computerInput) {
     }
 }
 
-function game() {
+function mainGame() {
+    const playerScoreDiv = document.querySelector('#player-score');
+    const computerScoreDiv = document.querySelector('#computer-score');
+
+    const playerChoice = document.querySelector('#player-choice');
+    const computerChoice = document.querySelector('#computer-choice');
+
+    const results = document.querySelector('.results');
+    
+    const round = document.createElement('p');
+    let roundNo = 1;
+
     const buttons = document.querySelectorAll('button');
     buttons.forEach(function (button) {
         button.addEventListener('click', function () {
-            console.log(`${playRound(button.id, getComputerChoice())}`);
-            console.log(`Player Score: ${playerScore}`);
-            console.log(`Computer Score: ${computerScore}`);
-        })
+            if (roundNo <= 10) {
+                computerInput = getComputerChoice();
+                round.textContent = `Round #${roundNo} ${playRound(button.id, computerInput)}`;
+                results.appendChild(round);
+                roundNo += 1;
+
+                playerChoice.textContent = `Player Choice : ${button.id}`;
+                computerChoice.textContent = `Computer Choice: ${computerInput}`;
+
+                playerScoreDiv.textContent = `Player Score: ${playerScore}`;
+                computerScoreDiv.textContent = `Computer Score: ${computerScore}`;
+
+            } else {
+                if (playerScore > computerScore) {
+                    round.textContent = 'Game Over, You Win!';
+                } else if (computerScore > playerScore) {
+                    round.textContent = 'Game Over, You Lose!';
+                } else {
+                    round.textContent = 'Game Tied.'
+                }
+            }
+        });
     });
 }
+
+function endGame() {
+    const container = document.querySelector('.container');
+    const playAgain = document.createElement('button');
+    playAgain.textContent = "Play Again";
+    container.appendChild(playAgain);
+}
+
+let playerScore = 0;
+let computerScore = 0;
+
+mainGame();
