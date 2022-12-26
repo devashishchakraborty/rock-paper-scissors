@@ -25,11 +25,13 @@ function playRound(playerSelection, computerSelection){
 }
 
 function game(){
-    let input = prompt("Enter your choice");
+    // let input = prompt("Enter your choice");
+    const button = document.querySelectorAll('button');
+
     const playerSelection = input;
     const computerSelection = getComputerChoice();
     console.log(playRound(playerSelection, computerSelection))
     }
 
 
-game();
+// game();
