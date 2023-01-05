@@ -2,7 +2,7 @@ body{
     background-color: #000000;
 }
 
-.title, .play-field, .results, .scores, .choices{
+.title, .play-field, .choices-and-scores, .results{
     display: flex;
     background-color: #181b23;
     gap: 16px;
@@ -48,7 +48,7 @@ body{
 
 .play-field{
     min-height: 180px;
-    max-height: 360px;
+    max-height: 750px;
     padding: 32px;
     flex-direction: column;
     justify-content: space-evenly;
@@ -64,24 +64,20 @@ body{
 .choices-and-scores{
     display: flex;
     justify-content: space-evenly;
-    align-items: stretch;
-    gap: 8px;
-    flex: 1;
+    align-items: center;
 }
 
 .scores, .choices{
     display: flex;
-    flex-wrap: wrap;
     flex-direction: column;
     align-items: flex-start;
-    justify-content: space-evenly;
+    justify-content: center;
     color: white;
     flex: 1;
     font-weight: bolder;
-    font-size: 16px;
-    min-height: 120px;
-    padding: 16px 32px;
-    box-sizing: border-box;
+    font-size: 18px;
+    max-height: 300px;
+    padding: 32px;
 }
 
 button {
@@ -96,4 +92,8 @@ button {
 
 button:active{
     transform: translateY(4px) translateX(2px);
+}
+
+img{
+    height: 3em;
 }
