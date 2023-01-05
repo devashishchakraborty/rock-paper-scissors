@@ -31,7 +31,7 @@ body{
     flex-direction: column;
     gap: 8px;
     max-width: 1000px;
-    margin: auto;
+    margin: 32px auto;
     border: 2px solid cyan;
     padding: 16px;
     border-radius: 8px;
